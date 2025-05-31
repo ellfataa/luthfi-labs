@@ -33,6 +33,9 @@ export default function Home() {
       }
     }
   };
+
+  // Sidebar state for mobile nav
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
 
   // Certificate data
@@ -147,6 +150,7 @@ export default function Home() {
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
             <div className="flex justify-between items-center py-3 sm:py-4 lg:py-5">
               <div className="text-xl sm:text-2xl lg:text-2xl font-bold text-blue-600">LF</div>
+              {/* Desktop Nav */}
               <div className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
           {items.map((item, index) => (
             <a
@@ -158,17 +162,76 @@ export default function Home() {
               <span className="relative block transform transition-transform duration-300 ease-out group-hover:-translate-y-full">
                 {item.label}
               </span>
-              
               <span className="absolute top-full left-0 block text-blue-600 font-semibold transform transition-transform duration-300 ease-out group-hover:-translate-y-full">
                 {item.label}
               </span>
-              
               <span className="absolute inset-0 bg-blue-50 rounded-lg transform scale-0 transition-transform duration-300 ease-out group-hover:scale-100 opacity-0 group-hover:opacity-20 -z-10"></span>
             </a>
           ))}
               </div>
+              {/* Mobile Hamburger */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setSidebarOpen(true)}
+                  className="p-2 rounded-md text-blue-600 hover:bg-blue-100 transition"
+                  aria-label="Open menu"
+                >
+                  <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
+          {/* Sidebar for Mobile */}
+          {typeof window !== "undefined" && (
+            <React.Fragment>
+              {sidebarOpen && (
+          <div className="fixed inset-0 z-[60] flex">
+            {/* Overlay */}
+            <div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+              onClick={() => setSidebarOpen(false)}
+            />
+            {/* Sidebar */}
+            <div className="relative w-64 max-w-[80vw] bg-white h-full shadow-2xl p-6 flex flex-col animate-slideInRight ml-auto">
+              <button
+                onClick={() => setSidebarOpen(false)}
+                className="absolute top-4 right-4 text-gray-600 hover:text-blue-600 transition"
+                aria-label="Close menu"
+              >
+                <X className="w-7 h-7" />
+              </button>
+              <div className="text-2xl font-bold text-blue-600 mb-8">LF</div>
+              <nav className="flex flex-col gap-2">
+                {items.map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.href}
+                    onClick={e => {
+                      handleNavClick(e, item.href);
+                      setSidebarOpen(false);
+                    }}
+                    className="text-gray-700 font-medium text-lg py-2 px-2 rounded-lg hover:text-blue-600 transition"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+            <style jsx>{`
+              @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+              }
+              .animate-slideInRight {
+                animation: slideInRight 0.3s cubic-bezier(0.4,0,0.2,1);
+              }
+            `}</style>
+          </div>
+              )}
+            </React.Fragment>
+          )}
         </nav>
 
         {/* HERO SECTION */}
