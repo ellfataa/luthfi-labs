@@ -37,7 +37,6 @@ export default function Home() {
   // Sidebar state for mobile nav
   const [sidebarOpen, setSidebarOpen] = useState(false);
   
-
   // Certificate data
   const certificates = [
     {
@@ -194,7 +193,7 @@ export default function Home() {
               onClick={() => setSidebarOpen(false)}
             />
             {/* Sidebar */}
-            <div className="relative w-64 max-w-[80vw] bg-white h-full shadow-2xl p-6 flex flex-col animate-slideInRight ml-auto">
+            <div className="relative w-64 max-w-[80vw] bg-white/95 backdrop-blur-md h-full shadow-2xl p-6 flex flex-col animate-slideInRight ml-auto">
               <button
                 onClick={() => setSidebarOpen(false)}
                 className="absolute top-4 right-4 text-gray-600 hover:text-blue-600 transition"
@@ -260,7 +259,7 @@ export default function Home() {
                     text="I'm Luthfi Emillulfata"
                     className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight text-justify"
                     delay={50}
-                    duration={0.6}
+                    duration={0.5}
                     ease="power3.out"
                     splitType="chars"
                     from={{ opacity: 0, y: 40 }}
@@ -273,7 +272,7 @@ export default function Home() {
                     text="As a prospective candidate with a bachelor's degree in Computer Science and interested in Web Developer, UI/UX Design, and Data Analyst. I am also an outstanding student and team member with good time management, laboratory assistant, problem solving, teamwork, and leadership skills."
                     className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed text-justify"
                     delay={100}
-                    stepDuration={0.5}
+                    stepDuration={0.4}
                     direction="top"
                     threshold={0.1}
                     rootMargin="-100px"
@@ -282,7 +281,7 @@ export default function Home() {
 
                 <div className="pt-2 sm:pt-4 lg:pt-6">
                   <a
-                    href="#contact"
+                    href="https://drive.google.com/file/d/1T-E4_rsm0Si_-9fDb2lPcWazCSLJdC75/view?usp=drive_link"
                     className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-medium text-base sm:text-lg"
                   >
                     Look at my CV
@@ -302,7 +301,7 @@ export default function Home() {
       </div>
 
       {/* SESI ABOUT */}
-      <section id="about" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+      <section id="about" className="py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-start">
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 mt-2">About Me</h2>
@@ -311,17 +310,17 @@ export default function Home() {
               text="I am a dedicated web developer with expertise in modern technology and a passion for creating amazing digital experiences. I am most enthusiastic about UI/UX Designer, thus after creating a design I usually proceed to develop the design into web. I'm also an enthusiastic Data Analyst doing analysis and research which I find fun and challenging."
               className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6 lg:mb-8 mx-auto text-justify"
               delay={100}
-              stepDuration={0.5}
+              stepDuration={0.4}
               direction="top"
               threshold={0.1}
               rootMargin="-100px"
             />
 
             <BlurText
-              text="I develop the web with the principles of being efficient, interactive, and responsive to users. Using technologies such as React, Laravel, CodeIgniter, Next.Js, Tailwind, and Bootstrap. In data analysis and observation I use Python, Google Colab, and Kaggle. All of which I do because it's my passion and favorite."
+              text="Using technologies such as React, Laravel, CodeIgniter, Next.Js, Tailwind, and Bootstrap. In data analysis and observation I use Python, Google Colab, and Kaggle. All of which I do because it's my passion and favorite."
               className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8 lg:mb-12 mx-auto text-justify"
               delay={100}
-              stepDuration={0.5}
+              stepDuration={0.4}
               direction="top"
               threshold={0.1}
               rootMargin="-100px"
@@ -914,7 +913,7 @@ export default function Home() {
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://bit.ly/JTLawFirm-UIUX" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -937,12 +936,9 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">KreasiKita</h3>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">KreasiKita is an online donation platform for Indonesian creators to fund their projects.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-green-100 to-green-50 text-green-700 text-sm rounded-full font-medium border border-green-200/50">Next.Js</span>
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-100 to-cyan-50 text-cyan-700 text-sm rounded-full font-medium border border-cyan-200/50">Tailwind</span>
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-red-100 to-red-50 text-red-700 text-sm rounded-full font-medium border border-red-200/50">Nest.Js</span>
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">Midtrans</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://bit.ly/KreasiKitaUIUX" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -970,7 +966,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">HTML/CSS</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://github.com/ellfataa/SoalPedia" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -997,8 +993,9 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">MySQL</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">HTML/CSS</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>                 
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://github.com/ellfataa/Lingkar-Pendidikan" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1021,12 +1018,11 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">DemonWard</h3>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">DemonWard is a website that provides various information related to the Demon Slayer anime.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-purple-50 text-purple-700 text-sm rounded-full font-medium border border-purple-200/50">PHP</span>
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">MySQL</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">HTML/CSS</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://demonward.vercel.app/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1054,7 +1050,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-pink-100 to-pink-50 text-pink-700 text-sm rounded-full font-medium border border-pink-200/50">Bootstrap</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://github.com/ellfataa/Queasy" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1080,8 +1076,9 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-red-100 to-red-50 text-red-700 text-sm rounded-full font-medium border border-red-200/50">CodeIgniter</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-100 to-cyan-50 text-cyan-700 text-sm rounded-full font-medium border border-cyan-200/50">Tailwind</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>                  
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://github.com/ellfataa/SekulLegend" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1110,7 +1107,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-100 to-cyan-50 text-cyan-700 text-sm rounded-full font-medium border border-cyan-200/50">Tailwind</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://github.com/ellfataa/Sispak-Penyakit-Dada" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1138,7 +1135,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">Google Colab</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Python</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://bit.ly/LayananCloud_TOPSIS" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1167,7 +1164,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 text-sm rounded-full font-medium border border-amber-200/50">Gradient Descent</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-lime-100 to-lime-50 text-lime-700 text-sm rounded-full font-medium border border-lime-200/50">Adam Optimization</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://bit.ly/CreditRisk_ADAM" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1358,7 +1355,7 @@ export default function Home() {
           <div className="flex justify-start items-center gap-4 sm:gap-6 lg:gap-8 flex-wrap">
             {/* LinkedIn */}
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/luthfi-emillulfata/" 
               className="group relative p-3 sm:p-4 lg:p-5 bg-gray-100 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-blue-500/20 opacity-0 animate-fadeInUp transform hover:-translate-y-1"
               style={{animationDelay: '0.6s'}}
             >
@@ -1372,7 +1369,7 @@ export default function Home() {
 
             {/* Email */}
             <a 
-              href="mailto:your.email@example.com" 
+              href="mailto:luthfi.efata@gmail.com" 
               className="group relative p-3 sm:p-4 lg:p-5 bg-gray-100 rounded-xl border border-gray-200 hover:border-red-500 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-red-500/20 opacity-0 animate-fadeInUp transform hover:-translate-y-1"
               style={{animationDelay: '0.8s'}}
             >
@@ -1386,7 +1383,7 @@ export default function Home() {
 
             {/* GitHub */}
             <a 
-              href="#" 
+              href="https://github.com/ellfataa" 
               className="group relative p-3 sm:p-4 lg:p-5 bg-gray-100 rounded-xl border border-gray-200 hover:border-purple-500 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 opacity-0 animate-fadeInUp transform hover:-translate-y-1"
               style={{animationDelay: '1s'}}
             >
