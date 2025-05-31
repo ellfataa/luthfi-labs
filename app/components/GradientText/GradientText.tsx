@@ -1,65 +1,69 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface GradientTextProps {
-    children: ReactNode;
-    className?: string;
-    colors?: string[];
-    animationSpeed?: number;
-    showBorder?: boolean;
+  colors: string[];
+  animationSpeed?: number;
+  showBorder?: boolean;
+  className?: string;
+  children: React.ReactNode;
+  animateGradient?: boolean;
+  loop?: boolean;
 }
 
-export default function GradientText({
-    children,
-    className = "",
-    colors = ["#ffaa40", "#9c40ff", "#ffaa40"],
-    animationSpeed = 8,
-    showBorder = false,
-}: GradientTextProps) {
-    const gradientStyle = {
-        backgroundImage: `linear-gradient(to right, ${colors.join(", ")})`,
-        animationDuration: `${animationSpeed}s`,
+const GradientText: React.FC<GradientTextProps> = ({
+  colors,
+  animationSpeed = 2,
+  showBorder = false,
+  className = '',
+  children,
+  animateGradient = false,
+  loop = false,
+}) => {
+  const spanRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!animateGradient || !spanRef.current) return;
+
+    let animationFrame: number;
+    let degree = 0;
+
+    const animate = () => {
+      degree = (degree + animationSpeed) % 360;
+      spanRef.current!.style.background = `linear-gradient(${degree}deg, ${colors.join(', ')})`;
+      if (loop) {
+        animationFrame = requestAnimationFrame(animate);
+      }
     };
 
-    return (
-        <div
-            className={`relative mx-auto flex max-w-fit flex-row items-center justify-center rounded-[1.25rem] font-medium backdrop-blur transition-shadow duration-500 overflow-hidden cursor-pointer ${className}`}
-        >
-            {showBorder && (
-                <div
-                    className="absolute inset-0 bg-cover z-0 pointer-events-none animate-gradient"
-                    style={{
-                        ...gradientStyle,
-                        backgroundSize: "300% 100%",
-                    }}
-                >
-                    <div
-                        className="absolute inset-0 bg-black rounded-[1.25rem] z-[-1]"
-                        style={{
-                            width: "calc(100% - 2px)",
-                            height: "calc(100% - 2px)",
-                            left: "50%",
-                            top: "50%",
-                            transform: "translate(-50%, -50%)",
-                        }}
-                    ></div>
-                </div>
-            )}
-            <div
-                className="inline-block relative z-2 text-transparent bg-cover animate-gradient"
-                style={{
-                    ...gradientStyle,
-                    backgroundClip: "text",
-                    WebkitBackgroundClip: "text",
-                    backgroundSize: "300% 100%",
-                }}
-            >
-                {children}
-            </div>
-        </div>
-    );
-}
+    animate();
+
+    return () => {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+    };
+  }, [animateGradient, loop, animationSpeed, colors]);
+
+  return (
+    <span
+      ref={spanRef}
+      className={className}
+      style={{
+        background: `linear-gradient(90deg, ${colors.join(', ')})`,
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+        WebkitTextFillColor: 'transparent',
+        border: showBorder ? '1px solid #ccc' : undefined,
+        display: 'inline-block',
+      }}
+    >
+      {children}
+    </span>
+  );
+};
+
+export default GradientText;
 
 // tailwind.config.js
 // module.exports = {
