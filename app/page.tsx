@@ -49,19 +49,19 @@ export default function Home() {
     },
     {
       id: 2,
-      image: "/assets/certificate/gammafest.jpg",
-      title: "Gammafest Competition for Data Science",
-      description: "Participation in a prestigious data science competition, showcasing skills in data analysis, machine learning, and problem solving.",
+      image: "/assets/certificate/revou.jpg",
+      title: "Intro to Data Analytics",
+      description: "An introductory course on data analytics, focusing on fundamental concepts and practical applications in data analysis.",
       year: "2025",
-      issuer: "IPB University"
+      issuer: "RevoU Indonesia"
     },
     {
       id: 3,
-      image: "/assets/certificate/bem u.jpg",
-      title: "Data Analysis Staff of BEM UNSOED",
-      description: "Role as a Data Analysis Staff in the Student Executive Board of Universitas Jenderal Soedirman, focusing on data collection, analysis, and reporting.",
-      year: "2025",
-      issuer: "BEM UNSOED"
+      image: "/assets/certificate/google analytics.jpg",
+      title: "Google Analytics for Beginners",
+      description: "Beginner-level course on Google Analytics, teaching how to set up and use the platform for data tracking and analysis.",
+      year: "2023",
+      issuer: "Google Academy"
     },
     {
       id: 4,
@@ -81,6 +81,22 @@ export default function Home() {
     },
     {
       id: 6,
+      image: "/assets/certificate/bem u.jpg",
+      title: "Data Analysis Staff of BEM UNSOED",
+      description: "Role as a Data Analysis Staff in the Student Executive Board of Universitas Jenderal Soedirman, focusing on data collection, analysis, and reporting.",
+      year: "2024",
+      issuer: "BEM UNSOED"
+    },
+    {
+      id: 7,
+      image: "/assets/certificate/hmif.jpg",
+      title: "Education Staff of HMIF UNSOED",
+      description: "Served as an Education Staff in the Student Association of Informatics, focusing on educational programs and student development.",
+      year: "2024",
+      issuer: "HMIF UNSOED"
+    },
+    {
+      id: 8,
       image: "/assets/certificate/tentor basdat.jpg",
       title: "Study Club Informatics Database Tentor",
       description: "Served as a tutor in the Study Club Informatics Database, helping students grasp database concepts and practical skills.",
@@ -88,7 +104,7 @@ export default function Home() {
       issuer: "HMIF UNSOED"
     },
     {
-      id: 7,
+      id: 9,
       image: "/assets/certificate/pengmas hmif.jpg",
       title: "Community Service Volunteer",
       description: "Participated in community service activities organized by HMIF UNSOED, focusing on technology education and outreach.",
@@ -96,8 +112,8 @@ export default function Home() {
       issuer: "HMIF UNSOED"
     },
     {
-      id: 8,
-      image: "/assets/certificate/sol.jpg",
+      id: 10,
+      image: "/assets/certificate/stech.jpg",
       title: "Soedirman Technophoria",
       description: "Served as a committee member in the Soedirman Technophoria event, organizing activities related to technology and innovation.",
       year: "2022",
@@ -241,7 +257,7 @@ export default function Home() {
               <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-justify order-2 lg:order-1">
                 <div>
                   <RotatingText
-                    texts={['Web Developer', 'UI/UX Design Enthusiast', 'Data Analyst Enthusiast']}
+                    texts={['Web Developer', 'UI/UX Design', 'Data Analyst']}
                     mainClassName="bg-transparent text-blue-500 overflow-hidden justify-center text-xl sm:text-2xl font-bold inline-flex transition-all"
                     staggerFrom="last"
                     initial={{ y: "100%" }}
@@ -281,7 +297,7 @@ export default function Home() {
 
                 <div className="pt-2 sm:pt-4 lg:pt-6">
                   <a
-                    href="https://drive.google.com/file/d/1T-E4_rsm0Si_-9fDb2lPcWazCSLJdC75/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1Ji0x4mVq81-27Mz28VWa6Mk4DTGpH2TL/view?usp=sharing"
                     className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-medium text-base sm:text-lg"
                   >
                     Look at my CV
@@ -574,6 +590,126 @@ export default function Home() {
               <div className="absolute left-3 sm:left-4 lg:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200"></div>
               
               <div className="space-y-6 sm:space-y-8 lg:space-y-12">
+                {/* KETUA ASISTEN */}
+                <div className="group relative">
+                  <div className="absolute left-1 sm:left-2 lg:left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
+                  
+                  <div className="ml-8 sm:ml-12 lg:ml-20 transform group-hover:-translate-y-2 transition-all duration-500 ease-out">
+                    <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
+                      
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 sm:gap-4">
+                        <div className="flex items-start gap-3 sm:gap-4 flex-1">
+                          <div className="relative flex-shrink-0">
+                            <img
+                              src="assets/image/asprak.jpg"
+                              alt="ASPRAK INFORMATIKA"
+                              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl object-cover shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="mb-2 sm:mb-3">
+                              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-1 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                                Head of Laboratory Assistant
+                              </h3>
+                              <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
+                                Laboratory Assistant Informatics UNSOED
+                              </p>
+                            </div>
+                            
+                            <ul className="space-y-2 sm:space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Coordinating and communicating with laboratory lecturers regarding the opening of assistant recruitment.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Making pamphlets and opening laboratory assistant recruitment, as well as making assistant cocards.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Plotting assistant shifts and practicum schedules so that they do not collide.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Making questions and conducting assessments, as well as entering the final score into the spreadsheet.</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <div className="flex-shrink-0 mt-2 lg:mt-0">
+                          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+                            Aug - Dec 2024
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PDAM BANYUMAS */}
+                <div className="group relative">
+                  <div className="absolute left-1 sm:left-2 lg:left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
+                  
+                  <div className="ml-8 sm:ml-12 lg:ml-20 transform group-hover:-translate-y-2 transition-all duration-500 ease-out">
+                    <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
+                      
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 sm:gap-4">
+                        <div className="flex items-start gap-3 sm:gap-4 flex-1">
+                          <div className="relative flex-shrink-0">
+                            <img
+                              src="assets/image/pdam.jpg"
+                              alt="PDAM BANYUMAS"
+                              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl object-cover shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="mb-2 sm:mb-3">
+                              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-1 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                                Staff Intern of the Information Technology
+                              </h3>
+                              <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
+                                PDAM Banyumas (Perumda Air Minum Tirta Satria Banyumas)
+                              </p>
+                            </div>
+                            
+                            <ul className="space-y-2 sm:space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Practical work for one month by collaborating with Perumdam's IT division to develop a member registration portal.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Creating data flow in the registration process both use cases, sequence diagrams, activity diagrams, and class diagrams.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Building strong relationships with Perumdam employees.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Present the progress of the backend development for the Perumdam member registration portal to the field supervisor.</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <div className="flex-shrink-0 mt-2 lg:mt-0">
+                          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+                            Jul - Aug 2024
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* HMIF */}
                 <div className="group relative">
                   {/* Timeline Dot */}
@@ -603,7 +739,7 @@ export default function Home() {
                                 Staff of the Education Division
                               </h3>
                               <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
-                                HMIF UNSOED (Himpunan Mahasiswa Informatika UNSOED)
+                                HMIF UNSOED (Informatics Student Association UNSOED)
                               </p>
                             </div>
                             
@@ -665,7 +801,7 @@ export default function Home() {
                                 Staff of the Directorate General of Data Analysis
                               </h3>
                               <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
-                                BEM UNSOED (Badan Eksekutif Mahasiswa UNSOED)
+                                BEM UNSOED (Student Executive Board UNSOED)
                               </p>
                             </div>
                             
@@ -700,66 +836,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* PDAM BANYUMAS */}
-                <div className="group relative">
-                  <div className="absolute left-1 sm:left-2 lg:left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
-                  
-                  <div className="ml-8 sm:ml-12 lg:ml-20 transform group-hover:-translate-y-2 transition-all duration-500 ease-out">
-                    <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
-                      
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 sm:gap-4">
-                        <div className="flex items-start gap-3 sm:gap-4 flex-1">
-                          <div className="relative flex-shrink-0">
-                            <img
-                              src="assets/image/pdam.jpg"
-                              alt="PDAM BANYUMAS"
-                              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl object-cover shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          </div>
-                          
-                          <div className="flex-1 min-w-0">
-                            <div className="mb-2 sm:mb-3">
-                              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-1 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
-                                Perumdam Member Portal Registration Backend Developer
-                              </h3>
-                              <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
-                                Perumda Air Minum Tirta Satria Banyumas
-                              </p>
-                            </div>
-                            
-                            <ul className="space-y-2 sm:space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
-                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
-                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
-                                <span className="text-justify">Practical work for one month by collaborating with Perumdam's IT division to develop a member registration portal.</span>
-                              </li>
-                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
-                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
-                                <span className="text-justify">Creating data flow in the registration process both use cases, sequence diagrams, activity diagrams, and class diagrams.</span>
-                              </li>
-                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
-                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
-                                <span className="text-justify">Building strong relationships with Perumdam employees.</span>
-                              </li>
-                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
-                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
-                                <span className="text-justify">Present the progress of the backend development for the Perumdam member registration portal to the field supervisor.</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        
-                        <div className="flex-shrink-0 mt-2 lg:mt-0">
-                          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
-                            Jul - Aug 2024
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Laboratory Assistant of Operating Systems */}
                 <div className="group relative">
                   <div className="absolute left-1 sm:left-2 lg:left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
@@ -785,7 +861,7 @@ export default function Home() {
                                 Laboratory Assistant of Operating Systems
                               </h3>
                               <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
-                                Aslab Informatika UNSOED (Laboratory Assistant Informatika UNSOED)
+                                Laboratory Assistant Informatics UNSOED
                               </p>
                             </div>
                             
@@ -845,7 +921,7 @@ export default function Home() {
                                 Laboratory Assistant of Database
                               </h3>
                               <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
-                                Aslab Informatika UNSOED (Laboratory Assistant Informatika UNSOED)
+                                Laboratory Assistant Informatics UNSOED
                               </p>
                             </div>
                             
@@ -879,6 +955,67 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
+                {/* BEASISWA SMART BRI */}
+                <div className="group relative">
+                  <div className="absolute left-1 sm:left-2 lg:left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
+                  
+                  <div className="ml-8 sm:ml-12 lg:ml-20 transform group-hover:-translate-y-2 transition-all duration-500 ease-out">
+                    <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
+                      
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 sm:gap-4">
+                        <div className="flex items-start gap-3 sm:gap-4 flex-1">
+                          <div className="relative flex-shrink-0">
+                            <img
+                              src="assets/image/bri.jpg"
+                              alt="BRI Bank"
+                              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl object-cover shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="mb-2 sm:mb-3">
+                              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-1 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                                Recipient of the Smart Scholarship Award
+                              </h3>
+                              <p className="text-blue-600 font-semibold text-sm sm:text-base lg:text-lg flex items-center gap-2">
+                                BRI Bank
+                              </p>
+                            </div>
+                            
+                            <ul className="space-y-2 sm:space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Academic Excellence Maintain and improve GPA while staying integrated with scholarship institution requirements.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Mentoring Participation Actively participate in all mentoring programs organized by the scholarship institution.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Continuous Learning Attend various seminars and webinars to enhance knowledge and skills.</span>
+                              </li>
+                              <li className="flex items-start gap-2 sm:gap-3 group/item hover:text-gray-800 transition-colors duration-200">
+                                <span className="w-2 h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:bg-blue-600 transition-colors duration-200"></span>
+                                <span className="text-justify">Institutional Engagement Participate in both internal and external activities held by the scholarship institution.</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <div className="flex-shrink-0 mt-2 lg:mt-0">
+                          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+                            Aug 2022 - Jun 2023
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -897,6 +1034,42 @@ export default function Home() {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {/* PORTAL PDAM */}
+              <div className="group rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/50 hover:-translate-y-2 animate-float bg-blue-100/60 backdrop-blur-lg">
+                <div className="relative overflow-hidden">
+                  <img
+                    src="assets/image/pdam.png" 
+                    alt="portal PDAM"
+                    className="h-48 sm:h-52 lg:h-56 w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-5 sm:p-6 lg:p-7">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">PDAM Portal Website for Customer Registration</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Fullstack
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">
+                    PDAM Portal Site for Customer Registration is a website created using the Laravel framework and Midtrans as a payment gateway
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">laravel</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">MySQL</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">Midtrans</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-emerald-100 to-emerald-50 text-emerald-700 text-sm rounded-full font-medium border border-emerald-200/50">Ngrok</span>
+                  </div>
+                  <a href="https://github.com/ellfataa/Portal-PDAM-Banyumas" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                    View Project 
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
               {/* JT LAW FIRM */}
               <div className="group rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/50 hover:-translate-y-2 animate-float bg-blue-100/60 backdrop-blur-lg">
                 <div className="relative overflow-hidden">
@@ -908,8 +1081,15 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">JT Law Firm</h3>
-                  <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">JT Law Firm is a UI/UX design for a legal consulting agency handling client cases.</p>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">JT Law Firm</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      UI/UX Designer
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">
+                    JT Law Firm is a UI/UX design project for a legal consulting agency focused on accessible legal services.
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>
                   </div>
@@ -933,7 +1113,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">KreasiKita</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">KreasiKita</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      UI/UX Designer
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">KreasiKita is an online donation platform for Indonesian creators to fund their projects.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>
@@ -958,7 +1143,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">SoalPedia</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">SoalPedia</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Frontend
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">SoalPedia is a web-based question bank for learning, accessible anywhere.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-purple-50 text-purple-700 text-sm rounded-full font-medium border border-purple-200/50">PHP</span>
@@ -966,7 +1156,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">HTML/CSS</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
                   </div>
-                  <a href="https://github.com/ellfataa/SoalPedia" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://soal-pedia-frontend.vercel.app/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -986,7 +1176,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Lingkar Pendidikan</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Lingkar Pendidikan</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Fullstack
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">Lingkar Pendidikan is a website for preparing to enter universities and official schools.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-purple-50 text-purple-700 text-sm rounded-full font-medium border border-purple-200/50">PHP</span>
@@ -1015,14 +1210,20 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">DemonWard</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">DemonWard</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Frontend
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">DemonWard is a website that provides various information related to the Demon Slayer anime.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 text-sm rounded-full font-medium border border-orange-200/50">HTML/CSS</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-purple-50 text-purple-700 text-sm rounded-full font-medium border border-purple-200/50">Bootstrap</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 text-sm rounded-full font-medium border border-blue-200/50">Figma</span>
                   </div>
-                  <a href="https://demonward.vercel.app/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://demon-ward-frontend.vercel.app/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1042,7 +1243,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Queasy</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Queasy</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Fullstack
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">Queasy is a story-based quiz learning platform with various categories.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-purple-50 text-purple-700 text-sm rounded-full font-medium border border-purple-200/50">PHP</span>
@@ -1050,7 +1256,7 @@ export default function Home() {
                     <span className="px-3 py-1.5 bg-gradient-to-r from-pink-100 to-pink-50 text-pink-700 text-sm rounded-full font-medium border border-pink-200/50">Bootstrap</span>
                     <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 text-sm rounded-full font-medium border border-yellow-200/50">Javascript</span>
                   </div>
-                  <a href="https://github.com/ellfataa/Queasy" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
+                  <a href="https://qumon.fun/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group-hover:gap-3 transition-all duration-300">
                     View Project 
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1070,7 +1276,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">SekulLegend</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">SekulLegend</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Fullstack
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">SekulLegend is a mini classroom platform for classes, discussions, and learning materials.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-red-100 to-red-50 text-red-700 text-sm rounded-full font-medium border border-red-200/50">CodeIgniter</span>
@@ -1098,7 +1309,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Expert System</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Expert System</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Fullstack
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">Expert System is a chest disease diagnostic tool using Naive Bayes.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-emerald-100 to-emerald-50 text-emerald-700 text-sm rounded-full font-medium border border-emerald-200/50">Naive Bayes</span>
@@ -1127,7 +1343,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Cloud Service Decision Support System</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Cloud Service Decision Support System</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Data Analyst
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">CloudSelect DSS is a TOPSIS-based tool for cloud service selection.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-indigo-100 to-indigo-50 text-indigo-700 text-sm rounded-full font-medium border border-indigo-200/50">TOPSIS</span>
@@ -1155,7 +1376,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-5 sm:p-6 lg:p-7">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Credit Risk Classification</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Credit Risk Classification</h3>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md border border-purple-200/50 whitespace-nowrap ml-2">
+                      Data Analyst
+                    </span>
+                  </div>
                   <p className="text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed text-sm sm:text-base">The Credit Risk Classification enhances banking decisions and risk management through predictive insights.</p>
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-5 lg:mb-6">
                     <span className="px-3 py-1.5 bg-gradient-to-r from-violet-100 to-violet-50 text-violet-700 text-sm rounded-full font-medium border border-violet-200/50">Backpropagation</span>
