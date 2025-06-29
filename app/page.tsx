@@ -1681,20 +1681,22 @@ export default function Home() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-12 border border-gray-100 backdrop-blur-sm bg-white/80">
+          {/* <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-12 border border-gray-100 backdrop-blur-sm bg-white/80">
+            {/* 
             <div className="text-center mb-8 sm:mb-10">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Send Me a Message
+              Send Me a Message
               </h3>
               <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
-                Feel free to reach out for collaborations or just a friendly hello!
+              Feel free to reach out for collaborations or just a friendly hello!
               </p>
             </div>
+            */}
 
-            <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8">
+            {/* <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Name Input */}
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <label htmlFor="name" className="block text-gray-700 text-sm sm:text-base font-semibold">
                     Nama Lengkap *
                   </label>
@@ -1709,10 +1711,10 @@ export default function Home() {
                     placeholder="Masukkan nama lengkap Anda"
                     className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 text-gray-800 text-sm sm:text-base bg-gray-50 hover:bg-white disabled:bg-gray-200 disabled:cursor-not-allowed placeholder-gray-400"
                   />
-                </div>
+                </div>}/*}
 
                 {/* Email Input */}
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <label htmlFor="email" className="block text-gray-700 text-sm sm:text-base font-semibold">
                     Email Address *
                   </label>
@@ -1728,10 +1730,10 @@ export default function Home() {
                     className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 text-gray-800 text-sm sm:text-base bg-gray-50 hover:bg-white disabled:bg-gray-200 disabled:cursor-not-allowed placeholder-gray-400"
                   />
                 </div>
-              </div>
+              </div> /*}
 
               {/* Message Textarea */}
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <label htmlFor="message" className="block text-gray-700 text-sm sm:text-base font-semibold">
                   Pesan Anda *
                 </label>
@@ -1752,7 +1754,7 @@ export default function Home() {
               </div>
 
               {/* Submit Button */}
-              <div className="flex flex-col items-center space-y-4">
+              {/* <div className="flex flex-col items-center space-y-4">
                 <button
                   type="submit"
                   disabled={formStatus === 'loading' || formData.message.length < 10}
@@ -1775,7 +1777,7 @@ export default function Home() {
                 </button>
 
                 {/* Status Message */}
-                {formMessage && (
+                {/* {formMessage && (
                   <div className={`w-full p-4 rounded-lg text-center text-sm sm:text-base font-medium ${
                     formStatus === 'success' 
                       ? 'bg-green-100 text-green-800 border border-green-200' 
@@ -1803,6 +1805,7 @@ export default function Home() {
               </div>
             </form>
           </div>
+          */}
         </div>
 
         {/* Custom CSS animations */}
