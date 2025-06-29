@@ -143,6 +143,63 @@ export default function Home() {
     setSelectedImage(null);
   };
 
+  // Contact Form State Management
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    setFormMessage('');
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setFormStatus('success');
+        setFormMessage(data.message || 'Pesan berhasil terkirim!');
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+        
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus('idle');
+          setFormMessage('');
+        }, 5000);
+      } else {
+        setFormStatus('error');
+        if (data.errors) {
+          // Handle validation errors
+          const errorMessages = Object.values(data.errors).flat().join(' ');
+          setFormMessage(`Gagal mengirim: ${errorMessages}`);
+        } else {
+          setFormMessage(data.message || 'Terjadi kesalahan saat mengirim pesan.');
+        }
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setFormMessage('Terjadi kesalahan koneksi. Pastikan server Laravel berjalan di http://127.0.0.1:8000');
+      console.error('Fetch error:', error);
+    }
+  }
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-white">
       {/* NAVBAR & HERO SECTION WITH PARTICLES */}
@@ -1578,10 +1635,12 @@ export default function Home() {
           </div>
 
           {/* Social Links with enhanced animations */}
-          <div className="flex justify-start items-center gap-4 sm:gap-6 lg:gap-8 flex-wrap">
+          <div className="flex justify-start items-center gap-4 sm:gap-6 lg:gap-8 flex-wrap mb-10 sm:mb-14 lg:mb-16">
             {/* LinkedIn */}
             <a 
               href="https://www.linkedin.com/in/luthfi-emillulfata/" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative p-3 sm:p-4 lg:p-5 bg-gray-100 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-blue-500/20 opacity-0 animate-fadeInUp transform hover:-translate-y-1"
               style={{animationDelay: '0.6s'}}
             >
@@ -1589,7 +1648,6 @@ export default function Home() {
               <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none z-10 group-hover:animate-pulse">
                 LinkedIn
               </div>
-              {/* Ripple effect */}
               <div className="absolute inset-0 rounded-xl bg-blue-500 opacity-0 group-hover:opacity-10 group-hover:animate-ping transition-opacity duration-300"></div>
             </a>
 
@@ -1603,13 +1661,14 @@ export default function Home() {
               <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none z-10 group-hover:animate-pulse">
                 Email
               </div>
-              {/* Ripple effect */}
               <div className="absolute inset-0 rounded-xl bg-red-500 opacity-0 group-hover:opacity-10 group-hover:animate-ping transition-opacity duration-300"></div>
             </a>
 
             {/* GitHub */}
             <a 
               href="https://github.com/ellfataa" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative p-3 sm:p-4 lg:p-5 bg-gray-100 rounded-xl border border-gray-200 hover:border-purple-500 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 opacity-0 animate-fadeInUp transform hover:-translate-y-1"
               style={{animationDelay: '1s'}}
             >
@@ -1617,27 +1676,150 @@ export default function Home() {
               <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none z-10 group-hover:animate-pulse">
                 GitHub
               </div>
-              {/* Ripple effect */}
               <div className="absolute inset-0 rounded-xl bg-purple-500 opacity-0 group-hover:opacity-10 group-hover:animate-ping transition-opacity duration-300"></div>
             </a>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-12 border border-gray-100 backdrop-blur-sm bg-white/80">
+            <div className="text-center mb-8 sm:mb-10">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Send Me a Message
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
+                Feel free to reach out for collaborations or just a friendly hello!
+              </p>
+            </div>
+
+            <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Name Input */}
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-gray-700 text-sm sm:text-base font-semibold">
+                    Nama Lengkap *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    required
+                    disabled={formStatus === 'loading'}
+                    placeholder="Masukkan nama lengkap Anda"
+                    className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 text-gray-800 text-sm sm:text-base bg-gray-50 hover:bg-white disabled:bg-gray-200 disabled:cursor-not-allowed placeholder-gray-400"
+                  />
+                </div>
+
+                {/* Email Input */}
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-gray-700 text-sm sm:text-base font-semibold">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    required
+                    disabled={formStatus === 'loading'}
+                    placeholder="nama@email.com"
+                    className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 text-gray-800 text-sm sm:text-base bg-gray-50 hover:bg-white disabled:bg-gray-200 disabled:cursor-not-allowed placeholder-gray-400"
+                  />
+                </div>
+              </div>
+
+              {/* Message Textarea */}
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-gray-700 text-sm sm:text-base font-semibold">
+                  Pesan Anda *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  required
+                  rows={6}
+                  disabled={formStatus === 'loading'}
+                  placeholder="Tulis pesan Anda di sini... (minimal 10 karakter)"
+                  className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 text-gray-800 text-sm sm:text-base bg-gray-50 hover:bg-white disabled:bg-gray-200 disabled:cursor-not-allowed resize-y placeholder-gray-400"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  {formData.message.length}/10 karakter minimum
+                </p>
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex flex-col items-center space-y-4">
+                <button
+                  type="submit"
+                  disabled={formStatus === 'loading' || formData.message.length < 10}
+                  className="w-full sm:w-auto min-w-[200px] flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                >
+                  {formStatus === 'loading' ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Mengirim Pesan...
+                    </>
+                  ) : (
+                    <>
+                      <Mail className="w-5 h-5" />
+                      Kirim Pesan
+                    </>
+                  )}
+                </button>
+
+                {/* Status Message */}
+                {formMessage && (
+                  <div className={`w-full p-4 rounded-lg text-center text-sm sm:text-base font-medium ${
+                    formStatus === 'success' 
+                      ? 'bg-green-100 text-green-800 border border-green-200' 
+                      : 'bg-red-100 text-red-800 border border-red-200'
+                  }`}>
+                    {formStatus === 'success' && (
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span>Berhasil!</span>
+                      </div>
+                    )}
+                    {formStatus === 'error' && (
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>Error!</span>
+                      </div>
+                    )}
+                    {formMessage}
+                  </div>
+                )}
+              </div>
+            </form>
           </div>
         </div>
 
         {/* Custom CSS animations */}
         <style jsx>{`
           @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
           
           .animate-fadeInUp {
-        animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.8s ease-out forwards;
           }
         `}</style>
       </section>
