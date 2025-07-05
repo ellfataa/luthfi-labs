@@ -159,7 +159,7 @@ const HeroSection = () => {
 
             <div className="pt-2 sm:pt-4 lg:pt-6">
               <a
-                href="https://drive.google.com/file/d/15L7TXBLcbxpZldBrSuIVz9-KHUYjj0z_/view?usp=sharing"
+                href="https://drive.google.com/file/d/1sCq5Mr7eLfwLpJ5Eg_Pu6d2aJ3aGvYk8/view?usp=sharing"
                 className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-medium text-base sm:text-lg"
               >
                 Look at my CV
@@ -359,7 +359,7 @@ const ExperienceSection = () => {
         "Completed one-month internship collaborating with PDAM IT division to develop a customer registration portal website using Laravel framework and Midtrans payment gateway.",
         "Designed comprehensive data flow for registration process including use case, sequence diagram, activity diagram, and class diagram.",
         "Managed database implementation by inputting 306 village data entries and 27 sub-district data entries for Banyumas Regency into the system.",
-        "Present the progress of member registration portal website development to field supervisor.."
+        "Present the progress of member registration portal website development to field supervisor."
       ]
     },
     {
