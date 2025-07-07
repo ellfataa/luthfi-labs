@@ -404,60 +404,119 @@ const ExperienceItem = ({
                 </div>
               </div>
               
-              {/* Navigasi dokumen minimalis */}
+              {/* Navigasi dokumen responsif */}
               {documents.length > 1 && (
-                <div className="bg-white border-t border-gray-100 p-6 flex items-center justify-between">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // Jika di awal, pergi ke dokumen terakhir
-                      if (currentDocIndex === 0) {
-                        setCurrentDocIndex(documents.length - 1);
-                      } else {
-                        prevDocument();
-                      }
-                    }}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                    <span className="text-sm font-medium">Previous</span>
-                  </button>
-                  
-                  {/* Indikator halaman minimalis */}
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-500">
-                      {currentDocIndex + 1} of {documents.length}
-                    </span>
-                    <div className="flex gap-1">
-                      {documents.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                            index === currentDocIndex
-                              ? 'bg-blue-500 w-6'
-                              : 'bg-gray-300 hover:bg-gray-400 cursor-pointer'
-                          }`}
-                          onClick={() => setCurrentDocIndex(index)}
-                        />
-                      ))}
+                <div className="bg-white border-t border-gray-100 p-4 sm:p-6">
+                  {/* Layout untuk desktop dan tablet */}
+                  <div className="hidden sm:flex items-center justify-between">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Jika di awal, pergi ke dokumen terakhir
+                        if (currentDocIndex === 0) {
+                          setCurrentDocIndex(documents.length - 1);
+                        } else {
+                          prevDocument();
+                        }
+                      }}
+                      className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                      <span className="text-sm font-medium">Previous</span>
+                    </button>
+                    
+                    {/* Indikator halaman untuk desktop */}
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-gray-500 whitespace-nowrap">
+                        {currentDocIndex + 1} of {documents.length}
+                      </span>
+                      <div className="flex gap-1">
+                        {documents.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-2 h-2 rounded-full transition-all duration-200 cursor-pointer ${
+                              index === currentDocIndex
+                                ? 'bg-blue-500 w-6'
+                                : 'bg-gray-300 hover:bg-gray-400'
+                            }`}
+                            onClick={() => setCurrentDocIndex(index)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Jika di akhir, kembali ke awal
+                        if (currentDocIndex === documents.length - 1) {
+                          setCurrentDocIndex(0);
+                        } else {
+                          nextDocument();
+                        }
+                      }}
+                      className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
+                    >
+                      <span className="text-sm font-medium">Next</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  {/* Layout untuk mobile */}
+                  <div className="sm:hidden space-y-3">
+                    {/* Indikator halaman di atas untuk mobile */}
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-sm text-gray-500 font-medium">
+                        {currentDocIndex + 1} of {documents.length}
+                      </span>
+                      <div className="flex gap-1">
+                        {documents.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-2 h-2 rounded-full transition-all duration-200 cursor-pointer ${
+                              index === currentDocIndex
+                                ? 'bg-blue-500 w-6'
+                                : 'bg-gray-300 active:bg-gray-400'
+                            }`}
+                            onClick={() => setCurrentDocIndex(index)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Tombol navigasi untuk mobile */}
+                    <div className="flex items-center justify-between gap-3">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (currentDocIndex === 0) {
+                            setCurrentDocIndex(documents.length - 1);
+                          } else {
+                            prevDocument();
+                          }
+                        }}
+                        className="flex items-center justify-center gap-2 flex-1 py-3 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                        <span className="text-sm font-medium">Previous</span>
+                      </button>
+                      
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (currentDocIndex === documents.length - 1) {
+                            setCurrentDocIndex(0);
+                          } else {
+                            nextDocument();
+                          }
+                        }}
+                        className="flex items-center justify-center gap-2 flex-1 py-3 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
+                      >
+                        <span className="text-sm font-medium">Next</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
-                  
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // Jika di akhir, kembali ke awal
-                      if (currentDocIndex === documents.length - 1) {
-                        setCurrentDocIndex(0);
-                      } else {
-                        nextDocument();
-                      }
-                    }}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
-                  >
-                    <span className="text-sm font-medium">Next</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
                 </div>
               )}
               
@@ -465,7 +524,7 @@ const ExperienceItem = ({
               <div className="p-4 bg-white border-t border-gray-100 sm:hidden">
                 <button
                   onClick={handleCloseDocuments}
-                  className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-all duration-200 font-medium"
+                  className="w-full py-3 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 rounded-xl transition-all duration-200 font-medium"
                 >
                   Close
                 </button>
