@@ -382,8 +382,8 @@ const ExperienceItem = ({
 
       {/* Document modal */}
       {showDocuments && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[999] flex items-center justify-center p-4">
-          <div className="relative w-full max-w-4xl">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[999] flex items-center justify-center p-2">
+          <div className="relative w-full max-w-3xl">
             <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
               {/* Tombol close minimalis di pojok kanan atas */}
               <button
@@ -465,7 +465,7 @@ const ExperienceItem = ({
                   {/* Layout untuk mobile */}
                   <div className="sm:hidden space-y-3">
                     {/* Indikator halaman di atas untuk mobile */}
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="flex items-center justify-center gap-2">
                       <span className="text-sm text-gray-500 font-medium">
                         {currentDocIndex + 1} of {documents.length}
                       </span>
