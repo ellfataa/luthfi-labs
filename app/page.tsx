@@ -382,9 +382,11 @@ const ExperienceItem = ({
 
       {/* Document modal */}
       {showDocuments && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[999] flex items-center justify-center p-2">
-          <div className="relative w-full max-w-3xl">
-            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[999] flex items-center justify-center p-2 sm:p-4"
+             onClick={handleCloseDocuments}>
+          <div className="relative w-full max-w-4xl">
+            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100"
+                 onClick={(e) => e.stopPropagation()}>
               {/* Tombol close minimalis di pojok kanan atas */}
               <button
                 onClick={handleCloseDocuments}
@@ -394,7 +396,7 @@ const ExperienceItem = ({
                 <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
               </button>
               
-              <div className="bg-gray-50 p-8 flex items-center justify-center" style={{ height: '75vh' }}>
+              <div className="bg-gray-50 p-4 sm:p-8 flex items-center justify-center" style={{ height: '60vh' }}>
                 <div className="relative w-full h-full bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                   <img
                     src={documents[currentDocIndex]}
@@ -465,7 +467,7 @@ const ExperienceItem = ({
                   {/* Layout untuk mobile */}
                   <div className="sm:hidden space-y-3">
                     {/* Indikator halaman di atas untuk mobile */}
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex items-center justify-center gap-3">
                       <span className="text-sm text-gray-500 font-medium">
                         {currentDocIndex + 1} of {documents.length}
                       </span>
@@ -519,16 +521,6 @@ const ExperienceItem = ({
                   </div>
                 </div>
               )}
-              
-              {/* Tombol close untuk mobile - minimalis */}
-              <div className="p-4 bg-white border-t border-gray-100 sm:hidden">
-                <button
-                  onClick={handleCloseDocuments}
-                  className="w-full py-3 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 rounded-xl transition-all duration-200 font-medium"
-                >
-                  Close
-                </button>
-              </div>
             </div>
           </div>
         </div>
