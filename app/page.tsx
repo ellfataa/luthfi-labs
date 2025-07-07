@@ -12,12 +12,15 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, X, Linkedin, Mail, Github } from 'lucide-react';
 
 // BAGIAN NAVBAR
-const Navbar = ({ items, handleNavClick, setSidebarOpen, sidebarOpen }: {
+const Navbar = ({ items, handleNavClick, setSidebarOpen, sidebarOpen, isHidden }: {
   items: { label: string, href: string }[],
   handleNavClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void,
   setSidebarOpen: (open: boolean) => void,
-  sidebarOpen: boolean
+  sidebarOpen: boolean,
+  isHidden: boolean
 }) => {
+  if (isHidden) return null;
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-md">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -275,24 +278,51 @@ const ExperienceItem = ({
   company, 
   period, 
   description, 
-  image 
+  image,
+  documents = [],
+  setIsNavbarHidden
 }: {
   title: string;
   company: string;
   period: string;
   description: string[];
   image: string;
+  documents?: string[];
+  setIsNavbarHidden: (hidden: boolean) => void;
 }) => {
+  const [showDocuments, setShowDocuments] = useState(false);
+  const [currentDocIndex, setCurrentDocIndex] = useState(0);
+
+  const handleOpenDocuments = () => {
+    setIsNavbarHidden(true);
+    setShowDocuments(true);
+  };
+
+  const handleCloseDocuments = () => {
+    setIsNavbarHidden(false);
+    setShowDocuments(false);
+  };
+
+  const nextDocument = () => {
+    setCurrentDocIndex((prev) => (prev + 1) % documents.length);
+  };
+
+  const prevDocument = () => {
+    setCurrentDocIndex((prev) => (prev - 1 + documents.length) % documents.length);
+  };
+
   return (
     <div className="group relative">
       <div className="absolute left-1 sm:left-2 lg:left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
       
+      {/* Experience card */}
       <div className="ml-8 sm:ml-12 lg:ml-20 transform group-hover:-translate-y-2 transition-all duration-500 ease-out">
         <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
           
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 sm:gap-4">
             <div className="flex items-start gap-3 sm:gap-4 flex-1">
+              {/* logo */}
               <div className="relative flex-shrink-0">
                 <img
                   src={image}
@@ -302,6 +332,7 @@ const ExperienceItem = ({
                 <div className="absolute inset-0 bg-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
+              {/* Text content */}
               <div className="flex-1 min-w-0">
                 <div className="mb-2 sm:mb-3">
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-1 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
@@ -320,9 +351,26 @@ const ExperienceItem = ({
                     </li>
                   ))}
                 </ul>
+
+                {/* View Documentary button */}
+                {documents.length > 0 && (
+                  <div className="mt-3">
+                  <button
+                    onClick={handleOpenDocuments}
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium text-xs sm:text-sm group shadow-md hover:shadow-lg"
+                    style={{ minHeight: 0, minWidth: 0 }}
+                  >
+                    View Documentary
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </button>
+                  </div>
+                )}
               </div>
             </div>
             
+            {/* Period badge */}
             <div className="flex-shrink-0 mt-2 lg:mt-0">
               <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                 {period}
@@ -331,18 +379,119 @@ const ExperienceItem = ({
           </div>
         </div>
       </div>
+
+      {/* Document modal */}
+      {showDocuments && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[999] flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl">
+            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+              {/* Tombol close minimalis di pojok kanan atas */}
+              <button
+                onClick={handleCloseDocuments}
+                className="absolute top-4 right-4 z-50 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all duration-200 group"
+                aria-label="Close document viewer"
+              >
+                <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
+              </button>
+              
+              <div className="bg-gray-50 p-8 flex items-center justify-center" style={{ height: '75vh' }}>
+                <div className="relative w-full h-full bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+                  <img
+                    src={documents[currentDocIndex]}
+                    alt={`Document ${currentDocIndex + 1}`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+              
+              {/* Navigasi dokumen minimalis */}
+              {documents.length > 1 && (
+                <div className="bg-white border-t border-gray-100 p-6 flex items-center justify-between">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Jika di awal, pergi ke dokumen terakhir
+                      if (currentDocIndex === 0) {
+                        setCurrentDocIndex(documents.length - 1);
+                      } else {
+                        prevDocument();
+                      }
+                    }}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    <span className="text-sm font-medium">Previous</span>
+                  </button>
+                  
+                  {/* Indikator halaman minimalis */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-500">
+                      {currentDocIndex + 1} of {documents.length}
+                    </span>
+                    <div className="flex gap-1">
+                      {documents.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                            index === currentDocIndex
+                              ? 'bg-blue-500 w-6'
+                              : 'bg-gray-300 hover:bg-gray-400 cursor-pointer'
+                          }`}
+                          onClick={() => setCurrentDocIndex(index)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Jika di akhir, kembali ke awal
+                      if (currentDocIndex === documents.length - 1) {
+                        setCurrentDocIndex(0);
+                      } else {
+                        nextDocument();
+                      }
+                    }}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200"
+                  >
+                    <span className="text-sm font-medium">Next</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+              
+              {/* Tombol close untuk mobile - minimalis */}
+              <div className="p-4 bg-white border-t border-gray-100 sm:hidden">
+                <button
+                  onClick={handleCloseDocuments}
+                  className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-all duration-200 font-medium"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-const ExperienceSection = () => {
-  // Categorized experiences
+const ExperienceSection = ({ setIsNavbarHidden }: { setIsNavbarHidden: React.Dispatch<React.SetStateAction<boolean>> }) => {
+  const [isNavbarHiddenLocal] = useState(false);
+
+  // KATEGORI PENGALAMAN
   const professionalExperiences = [
     {
       title: "Head of Laboratory Assistant",
       company: "Laboratory Assistant Informatics UNSOED",
       period: "Aug - Dec 2024",
       image: "assets/image/asprak.jpg",
+      documents: [
+        "assets/documentary/head 1.jpeg",
+        "assets/documentary/head 2.jpeg"
+      ],
       description: [
         "Led and coordinated a team of 33 members (5 coordinators and 28 assistants) as Head of Laboratory Assistant.",
         "Managed recruitment process for 60 applicants, including creating promotional materials and assistant ID cards.",
@@ -355,6 +504,9 @@ const ExperienceSection = () => {
       company: "PDAM Banyumas (Perumda Air Minum Tirta Satria Banyumas)",
       period: "Jul - Aug 2024",
       image: "assets/image/pdam.jpg",
+      documents: [
+        "assets/documentary/pdam1.jpg"
+      ],
       description: [
         "Completed one-month internship collaborating with PDAM IT division to develop a customer registration portal website using Laravel framework and Midtrans payment gateway.",
         "Designed comprehensive data flow for registration process including use case, sequence diagram, activity diagram, and class diagram.",
@@ -367,6 +519,9 @@ const ExperienceSection = () => {
       company: "Laboratory Assistant Informatics UNSOED",
       period: "Mar - Jun 2024",
       image: "assets/image/asprak.jpg",
+      documents: [
+        "assets/documentary/asprakso.jpeg"
+      ],
       description: [
         "Selected as Operating System Lab Assistant through administrative and interview selection process.",
         "Instructed 40 students across 2 shifts in Operating System Practicum using Windows and WSL Linux environments.",
@@ -379,6 +534,11 @@ const ExperienceSection = () => {
       company: "Laboratory Assistant Informatics UNSOED",
       period: "Sep - Dec 2023",
       image: "assets/image/asprak.jpg",
+      documents: [
+        "assets/documentary/asprakbd1.jpg",
+        "assets/documentary/asprakbd2.jpg",
+        "assets/documentary/asprakbd3.jpg"
+      ],
       description: [
         "Selected as Database Lab Assistant through administrative and interview selection process.",
         "Instructed 60 students across 3 shifts in Database Practicum using XAMPP and Command Prompt environments.",
@@ -391,6 +551,10 @@ const ExperienceSection = () => {
       company: "BRI Bank",
       period: "Aug 2022 - Jun 2023",
       image: "assets/image/bri.jpg",
+      documents: [
+        "assets/documentary/smart1.jpg",
+        "assets/documentary/smart2.jpg"
+      ],
       description: [
         "Maintained excellent academic performance while consistently meeting scholarship institution requirements and standards.",
         "Actively participated in monthly mentoring sessions and engaged in all organized scholarship programs and activities.",
@@ -400,12 +564,24 @@ const ExperienceSection = () => {
     }
   ];
 
-  const organizationalExperiences = [
+  const organizationalExperiences: {
+    title: string;
+    company: string;
+    period: string;
+    image: string;
+    description: string[];
+    documents?: string[];
+  }[] = [
     {
       title: "Staff of the Education Division",
       company: "HMIF UNSOED (Informatics Student Association UNSOED)",
       period: "Mar - Dec 2024",
       image: "assets/image/hmif.png",
+      documents: [
+        "assets/documentary/edu1.jpeg",
+        "assets/documentary/edu2.JPG",
+        "assets/documentary/edu3.jpg"
+      ],
       description: [
         "Enhanced academic potential for Unsoed Informatics students through structured programs including 'Mahasiswa Berprestasi' initiatives.",
         "Led 'Simpul Pintar' Exam Question Bank & Material Bank program, collecting and organizing 74 course materials and 148 exam questions for Midterm and Final Semester assessments.",
@@ -417,6 +593,11 @@ const ExperienceSection = () => {
       company: "BEM UNSOED (Student Executive Board UNSOED)",
       period: "Feb - Dec 2024",
       image: "assets/image/bemu.png",
+      documents: [
+        "assets/documentary/risdat1.jpg",
+        "assets/documentary/risdat2.jpg",
+        "assets/documentary/risdat3.jpg"
+      ],
       description: [
         "Conducted research and surveys to support BEM UNSOED ministries while providing strategic benefits to the Unsoed Student Big Family (KBMU).",
         "Led Data Analysis Directorate, managing collected data using Excel, Google Colab, and spreadsheets for comprehensive analysis.",
@@ -429,6 +610,9 @@ const ExperienceSection = () => {
       company: "BEM FT UNSOED (Student Executive Board of Engineering Faculty UNSOED)",
       period: "Sep - Nov 2022",
       image: "assets/image/bemft.jpg",
+      documents: [
+        "assets/documentary/bemft.jpg"
+      ],
       description: [
         "Participated in monthly plenary meetings with approximately 60 participants to coordinate organizational activities.",
         "Led and managed ministry member relations to maintain harmony and prevent conflicts within the organization.",
@@ -443,6 +627,12 @@ const ExperienceSection = () => {
       company: "BEM UNSOED (Student Executive Board UNSOED)",
       period: "May - Sep 2024",
       image: "assets/image/bemu.png",
+      documents: [
+        "assets/documentary/kumbang1.jpg",
+        "assets/documentary/kumbang2.jpg",
+        "assets/documentary/kumbang3.jpg",
+        "assets/documentary/kumbang4.jpg"
+      ],
       description: [
         "Led institutional visits, including to Dinkominfo Banyumas, fostering data and research knowledge transfer.",
         "Achieved 28 participants (exceeding 20 target), demonstrating effective outreach.",
@@ -454,6 +644,11 @@ const ExperienceSection = () => {
       company: "HMIF UNSOED (Informatics Student Association UNSOED)",
       period: "Aug 2024 - Feb 2025",
       image: "assets/image/hmif.png",
+      documents: [
+        "assets/documentary/mm3.jpg",
+        "assets/documentary/mm1.jpeg",
+        "assets/documentary/mm2.jpeg"
+      ],
       description: [
         "Supervised 87 committee members and established comprehensive committee guidelines containing 13 rules, 4 licensing procedures, and consequence policies.",
         "Conducted field engineering assessments to evaluate and approve activity locations for safety and feasibility.",
@@ -465,6 +660,11 @@ const ExperienceSection = () => {
       company: "HMIF UNSOED (Informatics Student Association UNSOED)",
       period: "Sep 2023",
       image: "assets/image/hmif.png",
+      documents: [
+        "assets/documentary/pengmas1.jpg",
+        "assets/documentary/pengmas2.jpg",
+        "assets/documentary/pengmas3.jpg"
+      ],
       description: [
         "Volunteered as an educator at Blater 2 Elementary School, teaching approximately 18 elementary students basic computer skills and Microsoft Office applications.",
         "Created and delivered presentations explaining Microsoft Office fundamentals to elementary students through engaging and age-appropriate methods.",
@@ -477,6 +677,11 @@ const ExperienceSection = () => {
       company: "HMIF UNSOED (Informatics Student Association UNSOED)",
       period: "Okt 2023 & Dec 2023",
       image: "assets/image/hmif.png",
+      documents: [
+        "assets/documentary/tentor1.jpg",
+        "assets/documentary/tentor2.jpg",
+        "assets/documentary/tentor3.jpg"
+      ],
       description: [
         "Developed and delivered PowerPoint presentations on database material.",
         "Conducted engaging presentations and Q&A sessions for 70 participants, aiming to prepare them for midterm and final semester tests.",
@@ -488,6 +693,9 @@ const ExperienceSection = () => {
       company: "HMIF UNSOED (Informatics Student Association UNSOED)",
       period: "Okt 2022 - Nov 2022",
       image: "assets/image/hmif.png",
+      documents: [
+        "assets/documentary/stech.jpg"
+      ],
       description: [
         "Served as security division staff for Soedirman Technophoria event, developing 10 committee regulations including licensing procedures and consequence policies.",
         "Coordinated security operations and facility management to ensure smooth event execution and maintain safety protocols.",
@@ -521,6 +729,8 @@ const ExperienceSection = () => {
                     period={exp.period}
                     description={exp.description}
                     image={exp.image}
+                    documents={exp.documents || []}
+                    setIsNavbarHidden={setIsNavbarHidden}
                   />
                 ))}
               </div>
@@ -541,6 +751,8 @@ const ExperienceSection = () => {
                     period={exp.period}
                     description={exp.description}
                     image={exp.image}
+                    documents={exp.documents || []}
+                    setIsNavbarHidden={setIsNavbarHidden}
                   />
                 ))}
               </div>
@@ -561,6 +773,8 @@ const ExperienceSection = () => {
                     period={exp.period}
                     description={exp.description}
                     image={exp.image}
+                    documents={exp.documents || []}
+                    setIsNavbarHidden={setIsNavbarHidden}
                   />
                 ))}
               </div>
@@ -1498,6 +1712,8 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =>
 // Sidebar state for mobile nav
 const [sidebarOpen, setSidebarOpen] = useState(false);
 
+const [isNavbarHidden, setIsNavbarHidden] = useState(false);
+
 return (
   <div className="min-h-screen overflow-x-hidden bg-white">
     {/* NAVBAR & HERO SECTION WITH PARTICLES */}
@@ -1519,6 +1735,7 @@ return (
         handleNavClick={handleNavClick} 
         setSidebarOpen={setSidebarOpen}
         sidebarOpen={sidebarOpen}
+        isHidden={isNavbarHidden}
       />
 
       {/* HERO SECTION */}
@@ -1529,7 +1746,7 @@ return (
     <AboutSection />
 
     {/* EXPERIENCE SECTION */}
-    <ExperienceSection />
+    <ExperienceSection setIsNavbarHidden={setIsNavbarHidden} />
 
     {/* PROJECTS SECTION */}
     <ProjectsSection />
