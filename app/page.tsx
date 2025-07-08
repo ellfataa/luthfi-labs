@@ -162,7 +162,7 @@ const HeroSection = () => {
 
             <div className="pt-2 sm:pt-4 lg:pt-6">
               <a
-                href="https://drive.google.com/file/d/1sCq5Mr7eLfwLpJ5Eg_Pu6d2aJ3aGvYk8/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Bmc7buv4UHzCLJDXZSY9wcN3VuiY88tT/view?usp=sharing"
                 className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-medium text-base sm:text-lg"
               >
                 Look at my CV
