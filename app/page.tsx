@@ -122,7 +122,7 @@ const HeroSection = () => {
           <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-justify order-2 lg:order-1">
             <div>
               <RotatingText
-                texts={['Web Developer', 'UI/UX Design', 'Data Analyst']}
+                texts={['Web Developer', 'Data Analyst']}
                 mainClassName="bg-transparent text-blue-500 overflow-hidden justify-center text-xl sm:text-2xl font-bold inline-flex transition-all"
                 staggerFrom="last"
                 initial={{ y: "100%" }}
@@ -150,7 +150,7 @@ const HeroSection = () => {
               />
               
               <BlurText
-                text="A Computer Science student at Jenderal Soedirman University with expertise in Web Development, UI/UX Design, and Data Analysis. An outstanding student with proven problem-solving, teamwork, and leadership skills. Seeking to apply technical knowledge and collaborative abilities in a dynamic environment."
+                text="A Computer Science student at Jenderal Soedirman University with expertise in Web Development and Data Analysis. An outstanding student with proven problem-solving, teamwork, and leadership skills. Seeking to apply technical knowledge and collaborative abilities in a dynamic environment."
                 className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed text-justify"
                 delay={100}
                 stepDuration={0.4}
@@ -162,7 +162,7 @@ const HeroSection = () => {
 
             <div className="pt-2 sm:pt-4 lg:pt-6">
               <a
-                href="https://drive.google.com/file/d/1Bmc7buv4UHzCLJDXZSY9wcN3VuiY88tT/view?usp=sharing"
+                href="https://drive.google.com/file/d/16wmYHL3XgiOlGDY5cpT-5SMcfR2NxA5S/view?usp=sharing"
                 className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-medium text-base sm:text-lg"
               >
                 Look at my CV
@@ -210,7 +210,7 @@ const AboutSection = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 mt-2">About Me</h2>
           
           <BlurText
-            text="A dedicated Web Developer with expertise in modern technologies and a strong passion for crafting exceptional digital experiences. My enthusiasm for UI/UX Design drives me to not only conceptualize but also meticulously develop designs into functional web applications. I am also an enthusiastic Data Analyst, finding immense enjoyment and challenge in conducting in-depth analysis and research to uncover valuable insights."
+            text="A dedicated Web Developer with expertise in modern technologies and a strong passion for crafting exceptional digital experiences. I specialize in developing functional web applications that deliver seamless user experiences. I am also an enthusiastic Data Analyst, finding immense enjoyment and challenge in conducting in-depth analysis and research to uncover valuable insights."
             className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6 lg:mb-8 mx-auto text-justify"
             delay={100}
             stepDuration={0.4}
@@ -220,7 +220,7 @@ const AboutSection = () => {
           />
 
           <BlurText
-            text="Currently, I'm exploring and building using web technologies such as React, Laravel, Next.js, and Tailwind. For UI/UX Design projects, I use Figma. When tackling Data Analysis, I work using Python, Google Colab, and Kaggle. I genuinely enjoy working with these tools!"
+            text="Currently, I'm exploring and building using web technologies such as React, Laravel, Next.js, and Tailwind. I also have design capabilities using Figma to create user interfaces when needed for my web development projects. When tackling Data Analysis, I work using Python, Google Colab, and Kaggle. I genuinely enjoy working with these tools."
             className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8 lg:mb-12 mx-auto text-justify"
             delay={100}
             stepDuration={0.4}
@@ -230,7 +230,7 @@ const AboutSection = () => {
           />
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8 lg:mb-10 text-justify">
-            I have learning experience with various tools and technologies, including:
+            For now, I am mastering various tools and technologies below, including:
           </p>
 
           {/* Tech Stack Grid with Orb Background */}
@@ -977,15 +977,86 @@ const ProjectsSection = () => {
       link: "https://github.com/ellfataa/Portal-PDAM-Banyumas",
       role: "Fullstack"
     },
-    {
-      title: "JT Law Firm",
-      description: "JT Law Firm is a UI/UX design project for a legal consulting agency focused on accessible legal services.",
+        {
+      title: "Cloud Service Decision Support System",
+      description: "CloudSelect DSS is a TOPSIS-based tool for cloud service selection.",
       tags: [
+        { name: "TOPSIS", color: "indigo" },
+        { name: "Google Form", color: "green" },
+        { name: "Google Colab", color: "orange" },
+        { name: "Python", color: "blue" }
+      ],
+      image: "assets/image/spk.png",
+      link: "https://drive.google.com/file/d/1EsAdnJB_2FBJAcF9p7MNP1QRSfJVr07-/view?usp=drive_link",
+      role: "Data Analyst"
+    },
+    {
+      title: "Credit Risk Classification",
+      description: "The Credit Risk Classification enhances banking decisions and risk management through predictive insights.",
+      tags: [
+        { name: "Backpropagation", color: "violet" },
+        { name: "SMOTE", color: "teal" },
+        { name: "Deep Neural Network", color: "rose" },
+        { name: "Gradient Descent", color: "amber" },
+        { name: "Adam Optimization", color: "lime" }
+      ],
+      image: "assets/image/datmin.png",
+      link: "https://drive.google.com/file/d/1ez8Yai2NQAwXoL2fSMxAIozQP17Lj3RT/view?usp=drive_link",
+      role: "Data Analyst"
+    },
+    {
+      title: "Queasy",
+      description: "Queasy is a story-based quiz learning platform with various categories.",
+      tags: [
+        { name: "PHP", color: "purple" },
+        { name: "MySQL", color: "sky" },
+        { name: "Bootstrap", color: "pink" },
+        { name: "Javascript", color: "yellow" }
+      ],
+      image: "assets/image/queasy.png",
+      link: "https://qumon.fun/",
+      role: "Fullstack"
+    },
+    {
+      title: "Expert System",
+      description: "Expert System is a chest disease diagnostic tool using Naive Bayes.",
+      tags: [
+        { name: "Naive Bayes", color: "emerald" },
+        { name: "PHP", color: "purple" },
+        { name: "MySQL", color: "sky" },
+        { name: "Tailwind", color: "cyan" },
+        { name: "Javascript", color: "yellow" }
+      ],
+      image: "assets/image/sispak.png",
+      link: "https://github.com/ellfataa/Sispak-Penyakit-Dada",
+      role: "Fullstack"
+    },
+    {
+      title: "SekulLegend",
+      description: "SekulLegend is a mini classroom platform for classes, discussions, and learning materials.",
+      tags: [
+        { name: "CodeIgniter", color: "red" },
+        { name: "Tailwind", color: "cyan" },
+        { name: "Javascript", color: "yellow" },
         { name: "Figma", color: "blue" }
       ],
-      image: "assets/image/jt law.png",
-      link: "https://bit.ly/JTLawFirm-UIUX",
-      role: "UI/UX Designer"
+      image: "assets/image/sekullegend.png",
+      link: "https://github.com/ellfataa/SekulLegend",
+      role: "Fullstack"
+    },
+    {
+      title: "Lingkar Pendidikan",
+      description: "Lingkar Pendidikan is a website for preparing to enter universities and official schools.",
+      tags: [
+        { name: "PHP", color: "purple" },
+        { name: "MySQL", color: "sky" },
+        { name: "HTML/CSS", color: "orange" },
+        { name: "Javascript", color: "yellow" },
+        { name: "Figma", color: "blue" }
+      ],
+      image: "assets/image/lingkar.png",
+      link: "https://github.com/ellfataa/Lingkar-Pendidikan",
+      role: "Fullstack"
     },
     {
       title: "KreasiKita",
@@ -1011,20 +1082,6 @@ const ProjectsSection = () => {
       role: "Frontend"
     },
     {
-      title: "Lingkar Pendidikan",
-      description: "Lingkar Pendidikan is a website for preparing to enter universities and official schools.",
-      tags: [
-        { name: "PHP", color: "purple" },
-        { name: "MySQL", color: "sky" },
-        { name: "HTML/CSS", color: "orange" },
-        { name: "Javascript", color: "yellow" },
-        { name: "Figma", color: "blue" }
-      ],
-      image: "assets/image/lingkar.png",
-      link: "https://github.com/ellfataa/Lingkar-Pendidikan",
-      role: "Fullstack"
-    },
-    {
       title: "DemonWard",
       description: "DemonWard is a website that provides various information related to the Demon Slayer anime.",
       tags: [
@@ -1037,73 +1094,6 @@ const ProjectsSection = () => {
       link: "https://demon-ward-frontend.vercel.app/",
       role: "Frontend"
     },
-    {
-      title: "Queasy",
-      description: "Queasy is a story-based quiz learning platform with various categories.",
-      tags: [
-        { name: "PHP", color: "purple" },
-        { name: "MySQL", color: "sky" },
-        { name: "Bootstrap", color: "pink" },
-        { name: "Javascript", color: "yellow" }
-      ],
-      image: "assets/image/queasy.png",
-      link: "https://qumon.fun/",
-      role: "Fullstack"
-    },
-    {
-      title: "SekulLegend",
-      description: "SekulLegend is a mini classroom platform for classes, discussions, and learning materials.",
-      tags: [
-        { name: "CodeIgniter", color: "red" },
-        { name: "Tailwind", color: "cyan" },
-        { name: "Javascript", color: "yellow" },
-        { name: "Figma", color: "blue" }
-      ],
-      image: "assets/image/sekullegend.png",
-      link: "https://github.com/ellfataa/SekulLegend",
-      role: "Fullstack"
-    },
-    {
-      title: "Expert System",
-      description: "Expert System is a chest disease diagnostic tool using Naive Bayes.",
-      tags: [
-        { name: "Naive Bayes", color: "emerald" },
-        { name: "PHP", color: "purple" },
-        { name: "MySQL", color: "sky" },
-        { name: "Tailwind", color: "cyan" },
-        { name: "Javascript", color: "yellow" }
-      ],
-      image: "assets/image/sispak.png",
-      link: "https://github.com/ellfataa/Sispak-Penyakit-Dada",
-      role: "Fullstack"
-    },
-    {
-      title: "Cloud Service Decision Support System",
-      description: "CloudSelect DSS is a TOPSIS-based tool for cloud service selection.",
-      tags: [
-        { name: "TOPSIS", color: "indigo" },
-        { name: "Google Form", color: "green" },
-        { name: "Google Colab", color: "orange" },
-        { name: "Python", color: "blue" }
-      ],
-      image: "assets/image/spk.png",
-      link: "https://bit.ly/LayananCloud_TOPSIS",
-      role: "Data Analyst"
-    },
-    {
-      title: "Credit Risk Classification",
-      description: "The Credit Risk Classification enhances banking decisions and risk management through predictive insights.",
-      tags: [
-        { name: "Backpropagation", color: "violet" },
-        { name: "SMOTE", color: "teal" },
-        { name: "Deep Neural Network", color: "rose" },
-        { name: "Gradient Descent", color: "amber" },
-        { name: "Adam Optimization", color: "lime" }
-      ],
-      image: "assets/image/datmin.png",
-      link: "https://bit.ly/CreditRisk_ADAM",
-      role: "Data Analyst"
-    }
   ];
 
   return (
